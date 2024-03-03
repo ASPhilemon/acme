@@ -166,6 +166,6 @@ function SubmitButton(){
   console.log(status.data?.get('amount'))
   
   return(
-    <Button type="submit" disabled = {status.pending}  > { status.pending? 'Saving ...':'Save'}</Button>
+    <Button className = {status.pending? 'opacity-50': ''} type="submit" disabled = {status.pending}  > { status.pending? 'Saving ...':'Save'}</Button>
   )
 }
