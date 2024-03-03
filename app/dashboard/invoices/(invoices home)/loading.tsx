@@ -5,8 +5,7 @@ import { lusitana } from '@/app/ui/fonts';
 import { InvoicesTableSkeleton } from '@/app/ui/skeletons';
 
 
-export default async function Loading() {
-
+export default function Loading() {
 
   return (
     <div className="w-full">
