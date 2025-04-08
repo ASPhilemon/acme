@@ -4,13 +4,14 @@ import Search from '@/app/ui/search';
 import Table from '@/app/ui/invoices/table';
 import { CreateInvoice } from '@/app/ui/invoices/buttons';
 import { lusitana } from '@/app/ui/fonts';
+import { Suspense } from 'react';
 
 export default async function Page({
   searchParams,
   }: {searchParams: any}) {
 
-  const query = searchParams?.query || '';
-  const currentPage = Number(searchParams?.page) || 1;
+  // const query = searchParams?.query || '';
+  //const currentPage = Number(searchParams?.page) || 1;
 
   return (
     <div className="w-full">
@@ -18,12 +19,16 @@ export default async function Page({
         <h1 className={`${lusitana.className} text-2xl`}>Invoices</h1>
       </div>
       <div className="mt-4 flex items-center justify-between gap-2 md:mt-8">
-        <Search placeholder="Search invoices..." />
+        <Suspense fallback = "<h1>LOADING SEARCH ..." >
+          <Search placeholder="Search invoices..." />
+        </Suspense>
         <CreateInvoice />
       </div>
-        <Table query={""} currentPage={1} />
+        <Table query={""} currentPage={9} />
       <div className="mt-5 flex w-full justify-center">
-        <PaginationWrapper query={""} />
+        <Suspense fallback = "<h1>LOADING PAGINATION ..." >
+          <PaginationWrapper query={""} />
+        </Suspense>
       </div>
     </div>
   );

@@ -2,7 +2,7 @@
 
 import { CustomerField } from '@/app/lib/definitions';
 import Link from 'next/link';
-import { useFormState } from 'react-dom';
+import {  useFormState } from 'react-dom';
 import {
   CheckIcon,
   ClockIcon,
@@ -15,7 +15,7 @@ import { useFormStatus } from "react-dom";
 
 export default function Form({ customers }: { customers: CustomerField[] }) {
   const initialState = { message: null, errors: {} };
-  const [state, dispatch] = useFormState(createInvoice, initialState);
+  const [state, dispatch] =  useFormState(createInvoice, initialState);
  
 
   return (
