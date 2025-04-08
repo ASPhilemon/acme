@@ -7,17 +7,10 @@ import { lusitana } from '@/app/ui/fonts';
 
 export default async function Page({
   searchParams,
-  }: {
-  searchParams?: {
-    query?: string;
-    page?: string;
-  };
-}) {
+  }: {searchParams: any}) {
 
   const query = searchParams?.query || '';
   const currentPage = Number(searchParams?.page) || 1;
-  
-
 
   return (
     <div className="w-full">
@@ -28,9 +21,9 @@ export default async function Page({
         <Search placeholder="Search invoices..." />
         <CreateInvoice />
       </div>
-        <Table query={query} currentPage={currentPage} />
+        <Table query={""} currentPage={1} />
       <div className="mt-5 flex w-full justify-center">
-        <PaginationWrapper query={query} />
+        <PaginationWrapper query={""} />
       </div>
     </div>
   );
